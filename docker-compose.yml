@@ -20,18 +20,8 @@ services:
       - POSTGRES_USER=postgresuser
       - POSTGRES_PASSWORD=postgrespassword
       - POSTGRES_DB=djangobnb
-
-  # db14:
-  #     image: postgres:14.0-alpine
-  #     restart: always 
-  #     volumes:
-  #       - ./data/postgres_data14:/var/lib/postgresql/data/
-  #     environment:
-  #       - POSTGRES_USER=hello_django
-  #       - POSTGRES_PASSWORD=hello_django
-  #       - POSTGRES_DB=hello_django_dev
-  #     ports:
-  #       - "5433:5432"
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
