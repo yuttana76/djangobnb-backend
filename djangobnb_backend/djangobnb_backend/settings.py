@@ -4,6 +4,8 @@ from datetime import timedelta
 from pathlib import Path
 # from dotenv import load_dotenv
 
+# load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,12 +20,13 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 
-# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
-if DEBUG:
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "64.226.81.32"]
-else:
-    ALLOWED_HOSTS = ["64.226.81.32"]
+# if DEBUG:
+#     ALLOWED_HOSTS = ["localhost", "127.0.0.1", "64.226.81.32"]
+# else:
+#     ALLOWED_HOSTS = ["64.226.81.32"]
 
 AUTH_USER_MODEL = 'useraccount.User'
 
@@ -67,6 +70,13 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+    'http://64.226.81.32',
+    'http://64.226.81.32:1337'
+]
+
+CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
     'http://64.226.81.32',
